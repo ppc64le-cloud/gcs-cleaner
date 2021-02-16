@@ -1,0 +1,6 @@
+- dir: logs/periodic-kubernetes-bazel-test-ppc64le
+  daysLimit: 15
+- dir: logs/periodic-kubernetes-conformance-test-ppc64le
+  daysLimit: 7
+- dir: logs/periodic-kubernetes-containerd-conformance-test-ppc64le
+  daysLimit: 7
