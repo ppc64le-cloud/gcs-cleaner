@@ -63,7 +63,7 @@ func listObjectsAndDeleteOlderObjects(bucket string, prefix string, reqDays int,
 		return fmt.Errorf("storage.NewClient: %v", err)
 	}
 	defer client.Close()
-	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
+	ctx, cancel := context.WithTimeout(ctx, time.Minute*10)
 	defer cancel()
 	it := client.Bucket(bucket).Objects(ctx, &storage.Query{
 		Prefix: prefix,
