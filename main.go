@@ -4,11 +4,11 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"log"
 	"os"
 	"time"
 
 	"cloud.google.com/go/storage"
+	log "github.com/sirupsen/logrus"
 	"google.golang.org/api/iterator"
 	"google.golang.org/api/option"
 	"gopkg.in/yaml.v2"
@@ -76,16 +76,16 @@ func listObjectsAndDeleteOlderObjects(bucket string, prefix string, reqDays int,
 		if err != nil {
 			return fmt.Errorf("Bucket(%q).Objects(): %v", bucket, err)
 		}
-		fmt.Println("\nObject Name : ", attrs.Name)
-		fmt.Println("\nObject Created Time : ", attrs.Created)
+		log.Debug("\nObject Name : ", attrs.Name)
+		log.Debug("\nObject Created Time : ", attrs.Created)
 		loc, _ := time.LoadLocation("UTC")
 		days := int(time.Now().In(loc).Sub(attrs.Created).Hours() / 24)
-		fmt.Printf("Diffrence in days : %d days\n", days)
+		log.Debugf("Difference in days : %d days\n", days)
 		if days >= reqDays {
 			if err := client.Bucket(bucket).Object(attrs.Name).Delete(ctx); err != nil {
 				return fmt.Errorf("Object(%q).Delete: %v", attrs.Name, err)
 			}
-			fmt.Printf("Object %v Deleted\n", attrs.Name)
+			log.Infof("Object %s Deleted\n", attrs.Name)
 		}
 	}
 	return nil
