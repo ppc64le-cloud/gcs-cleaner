@@ -5,7 +5,7 @@ go 1.17
 require (
 	cloud.google.com/go/storage v1.37.0
 	github.com/sirupsen/logrus v1.9.3
-	google.golang.org/api v0.160.0
+	google.golang.org/api v0.161.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
