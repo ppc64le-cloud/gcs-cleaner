@@ -1,6 +1,6 @@
 module github.com/ppc64le-cloud/gcs-cleaner
 
-go 1.17
+go 1.24
 
 require (
 	cloud.google.com/go/storage v1.43.0
