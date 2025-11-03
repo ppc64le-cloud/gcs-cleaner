@@ -3,7 +3,7 @@ module github.com/ppc64le-cloud/gcs-cleaner
 go 1.24.0
 
 require (
-	cloud.google.com/go/storage v1.57.0
+	cloud.google.com/go/storage v1.57.1
 	github.com/sirupsen/logrus v1.9.3
 	google.golang.org/api v0.253.0
 	gopkg.in/yaml.v2 v2.4.0
