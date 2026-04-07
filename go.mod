@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	cloud.google.com/go/storage v1.62.0
 	github.com/sirupsen/logrus v1.9.4
-	google.golang.org/api v0.273.1
+	google.golang.org/api v0.274.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
